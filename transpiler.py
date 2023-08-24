@@ -17,6 +17,10 @@ lastlength = 0
 
 for line in elsepycode:
 	line = line.rstrip()
+	
+	if ":" in line and not line.strip().startswith("else"):
+		inelse = False
+	
 	if line.strip().startswith("else"):
 		if lengthofws(line) > lastlength:
 			inelse = False
