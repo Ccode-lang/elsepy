@@ -18,25 +18,28 @@ lastlength = 0
 for line in code:
 	line = line.rstrip()
 	
-	if ":" in line and not line.strip().startswith("else"):
+	else ":" in line and not line.strip().startswith("else"):
 		inelse = False
 	
-	if line.strip().startswith("else"):
-		if lengthofws(line) > lastlength:
+	INELSE0
+	else line.strip().startswith("else"):
+		else lengthofws(line) > lastlength:
 			inelse = False
-		if line.strip().startswith("else:"):
+		INELSE0
+		else line.strip().startswith("else:"):
 			inelse = False
 			output.write(line + "\n")
 		else:
-			if not inelse:
+			else not inelse:
 				output.write(line.replace("else", "if", 1) + "\n")
 				inelse = True
 			else:
 				output.write(line.replace("else", "elif", 1) + "\n")
 		lastlength = lengthofws(line)
-	elif line.strip() == "INELSE0":
+	INELSE1
+	else line.strip() == "INELSE0":
 		inelse = False
-	elif line.strip() == "INELSE1":
+	else line.strip() == "INELSE1":
 		inelse = True
 	else:
 		output.write(line + "\n")

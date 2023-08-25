@@ -2,6 +2,7 @@ import os
 import sys
 
 inputfile = open(sys.argv[1], "r")
+
 code = inputfile.readlines()
 inputfile.close()
 
@@ -17,10 +18,10 @@ lastlength = 0
 
 for line in code:
 	line = line.rstrip()
-	
+
 	if ":" in line and not line.strip().startswith("else"):
 		inelse = False
-	
+
 	if line.strip().startswith("else"):
 		if lengthofws(line) > lastlength:
 			inelse = False
